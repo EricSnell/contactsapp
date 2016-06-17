@@ -8,6 +8,8 @@ $(document).ready(function(event){
 $('#add-button').on('click', function(event){
 	event.preventDefault();
 	addContact();
+	clearTextField();
+	contactLink();
 	})
 
 	// $("body").on('click', '', function(event){
@@ -18,7 +20,7 @@ $('#add-button').on('click', function(event){
 
 /*-------- VARIABLES --------*/
 	var contactInfo = {
-		firstName: 'john',
+		firstName: '',
 		lastName: '',
 		phoneNumber: '',
 		street: '',
@@ -30,15 +32,12 @@ $('#add-button').on('click', function(event){
 	var contactList = [];
 
 
-
 /*---------- FUNCTIONS ----------*/
 
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
 		//create new contact by getting value of input field
-		for (var i = 0; i < contactList.length; i++){
-		}
-
+		
 		var contact = Object.create(contactInfo);
 
 		contact.firstName = $('#first-name').val();
@@ -46,22 +45,29 @@ $('#add-button').on('click', function(event){
 		contact.phoneNumber = $('#phone-number').val();
 		contact.street = $('#street').val();
 		contact.city = $('#city').val();
-		contact.city = $('#state').val();
-
+		contact.state= $('#state').val();
 		contactList.push(contact);
+	} 
 
-		for(var prop in contactList[0]) {
-		console.log(contact[prop]);
-	}
-
-
-		//assign unique name to each contact oject
+// FUNCTION THAT CLEARS TEXT FIELD 
+	function clearTextField() {
+		$('#first-name').val('');
+		$('#last-name').val('');
+		$('#phone-number').val('');
+		$('#street').val('');
+		$('#city').val('');
+		$('#state').val('');
 	}
 
 // FUNCTION THAT APPENDS NEW CONTACT OBJECT AS A LINK IN A LIST
 	function contactLink() {
-
+		$('.name-list').append('<li>' + contactList[contactList.length - 1].firstName + ' ' + contactList[contactList.length - 1].lastName + '</li>');
 	}
+	/*function contactLink() {
+		for (var i = 0; i < contactList.length; i++) {
+			$('.name-list').append('<li>' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>')
+		}
+	}*/
 
 // FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
 	function displayContact() {
