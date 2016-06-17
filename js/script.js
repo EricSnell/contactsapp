@@ -51,7 +51,7 @@ $('#add-button').on('click', function(event){
 //
 		$('.name-list').empty();
 		for (var i = 0; i < contactList.length; i++) {
-			$('.name-list').append('<li>' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
+			$('.name-list').append('<li data-index="' +i + '">' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
 		}
 	}
 
@@ -71,12 +71,13 @@ $('#add-button').on('click', function(event){
 
 // // FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
 
-
-	// $('.contact-links').on('click', 'li', function(event) {
-
+	$('.name-list').on('click', 'li', function(event) {
+			var contactIndex = $(this).data("index")
+			var contact = contactList[parseInt(contactIndex)]
+			console.log(contact);
 // // data attributes - HTML 5 concept
 //  		$(this).(contact.firstName)
-//  	})
+	})
 
 });
 
