@@ -6,10 +6,10 @@
 $(document).ready(function(event){
 
 $('#add-button').on('click', function(event){
+	$('.show-contact').hide();
 	event.preventDefault();
 	addContact();
 	clearTextField();
-	contactLink();
 	})
 
 	// $("body").on('click', '', function(event){
@@ -37,7 +37,7 @@ $('#add-button').on('click', function(event){
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
 		//create new contact by getting value of input field
-		
+
 		var contact = Object.create(contactInfo);
 
 		contact.firstName = $('#first-name').val();
@@ -46,10 +46,16 @@ $('#add-button').on('click', function(event){
 		contact.street = $('#street').val();
 		contact.city = $('#city').val();
 		contact.state= $('#state').val();
-		contactList.push(contact);
-	} 
 
-// FUNCTION THAT CLEARS TEXT FIELD 
+		contactList.push(contact);
+//
+		$('.name-list').empty();
+		for (var i = 0; i < contactList.length; i++) {
+			$('.name-list').append('<li>' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
+		}
+	}
+
+// FUNCTION THAT CLEARS TEXT FIELD
 	function clearTextField() {
 		$('#first-name').val('');
 		$('#last-name').val('');
@@ -60,19 +66,27 @@ $('#add-button').on('click', function(event){
 	}
 
 // FUNCTION THAT APPENDS NEW CONTACT OBJECT AS A LINK IN A LIST
-	function contactLink() {
-		$('.name-list').append('<li>' + contactList[contactList.length - 1].firstName + ' ' + contactList[contactList.length - 1].lastName + '</li>');
-	}
-	/*function contactLink() {
-		for (var i = 0; i < contactList.length; i++) {
-			$('.name-list').append('<li>' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>')
-		}
-	}*/
 
-// FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
-	function displayContact() {
 
-	}
 
+// // FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
+
+
+	// $('.contact-links').on('click', 'li', function(event) {
+
+// // data attributes - HTML 5 concept
+//  		$(this).(contact.firstName)
+//  	})
 
 });
+
+
+
+
+
+
+
+
+
+
+
