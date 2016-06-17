@@ -2,15 +2,47 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<title>Contacts Application</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+	<div>
+		<h2>Contacts</h2>
+		<h2>Add a contact:</h2>
+	</div>
 
+	<!--- CONTACT INPUT -->
+	<div class="contact-info">
+		<form>
+			<h3>First name</h3>
+			<input type="text" id="first-name" required>
+			<h3>Last name</h3>
+			<input type="text" id="last-name" required>
+			<h3>Phone number</h3>
+			<input type="text" id="phone-number" required>
+			<h3>Street</h3>
+			<input type="text" id="street">
+			<h3>City</h3>
+			<input type="text" id="city">
+			<h3>State</h3>
+			<input type="text" id="state">
+			<input type="submit" value="Add" id="add-button">
+		</form>
+	</div>
+	
+	<!-- DISPLAY CONTACT LINKS INFORMATION -->
+	<div class="show-contact">
+		<h3 class="display-contact-name"></h3>
+		<p class="display-contact-info"></p>
+	</div>
 
-
-
-
+	<!-- CONTACT NAME LINKS -->
+	<div class="contact-links">
+		<h2>Contacts:</h2>
+		<ul class="name-list">
+			<!-- append <li>'s here -->
+		</ul>
+	</div>
 	
 <script src="js/jquery-3.0.0.min.js"</script>
 <script src="js/script.js"</script>
