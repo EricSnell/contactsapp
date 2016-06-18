@@ -29,3 +29,7 @@ body {
 	cursor: hand;
 	color: darkblue;
 }
+
+span {
+	color: red;
+}

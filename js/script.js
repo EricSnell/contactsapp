@@ -17,7 +17,7 @@ $(document).ready(function(event){
 
 /*----------- VARIABLES -----------*/
 
-// OBJECT THAT ADDED CONTACTS WILL INHERIT FROM
+	// OBJECT THAT ADDED CONTACTS WILL INHERIT FROM
 	var contactInfo = {
 		firstName: '',
 		lastName: '',
@@ -27,7 +27,7 @@ $(document).ready(function(event){
 		state: ''
 	};
 
-// ARRAY TO STORE CONTACTS
+	// ARRAY TO STORE CONTACTS
 	var contactList = [];
 
 
@@ -39,22 +39,28 @@ $(document).ready(function(event){
 
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
-	//create new contact by getting value of input field
-		var contact = Object.create(contactInfo);
-		contact.firstName = $('#first-name').val();
-		contact.lastName = $('#last-name').val();
-		contact.phoneNumber = $('#phone-number').val();
-		contact.street = $('#street').val();
-		contact.city = $('#city').val();
-		contact.state= $('#state').val();
+			//create new contact by getting value of input field
+			var contact = Object.create(contactInfo);
 
-	// Push new object contact to the array containing all contacts
-		contactList.push(contact);
+		if ($('#first-name').val() === '' || $('#phone-number').val() === '') {	
+			alert('Please enter First Name and Phone Number');
+		
+		} else {
+			contact.firstName = $('#first-name').val();
+			contact.lastName = $('#last-name').val();
+			contact.phoneNumber = $('#phone-number').val();
+			contact.street = $('#street').val();
+			contact.city = $('#city').val();
+			contact.state= $('#state').val();
 
-	// Clear the class of last contact and append new object with data attribute data-index
-		$('.name-list').empty();
-		for (var i = 0; i < contactList.length; i++) {
-			$('.name-list').append('<li data-index="' +i + '">' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
+			// Push new object contact to the array containing all contacts
+			contactList.push(contact);
+
+			// Clear the class of last contact and append new object with data attribute data-index
+			$('.name-list').empty();
+			for (var i = 0; i < contactList.length; i++) {
+				$('.name-list').append('<li data-index="' +i + '">' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
+			}
 		}
 	}
 
@@ -75,6 +81,7 @@ $(document).ready(function(event){
 			var contact = contactList[parseInt(contactIndex)]
 
 			$('.display-contact-info').empty();
+			$('.display-contact-name').empty();
 			$('.display-contact-name').append(contact.firstName + ' ' + contact.lastName);
 			$('#detail-First').append('First Name:  ' + contact.firstName);
 			$('#detail-Last').append('Last Name:  ' + contact.lastName);
