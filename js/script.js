@@ -80,7 +80,7 @@ $(document).ready(function(event){
 			$('#detail-Last').append('Last Name:  ' + contact.lastName);
 			$('#detail-Phone').append('Phone Number:  ' + contact.phoneNumber);
 			$('#detail-Address').append('Address: ');
-			$('#detail-Address-List').append('<li>' + contact.street + contact.city + contact.state + '</li>');
+			$('#detail-Address-List').append('<li>' + contact.street + ' ' + contact.city + ' ' + contact.state + '</li>');
 			$('.show-contact').show();
 		});
 	}
