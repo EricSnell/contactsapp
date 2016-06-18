@@ -5,18 +5,22 @@
 
 $(document).ready(function(event){
 
+
+	$('.show-contact').hide(); //This class will later display contact details when a contact from a <li> is clicked
+
 //Listen for submission, then call functions that follow
 $('#add-button').on('click', function(event){
-	$('.show-contact').hide(); //This class will later display contact details when a contact from a <li> is clicked
 	event.preventDefault();
 	addContact(); //creates new contact object
 	clearTextField(); //clears input text field after the form is submitted
-	})
+	});
 
 	// $("body").on('click', '', function(event){
 	// })
 
 /*-------- VARIABLES --------*/
+
+//This is the object prototype new contact objects will inherit from
 	var contactInfo = {
 		firstName: '',
 		lastName: '',
@@ -28,25 +32,20 @@ $('#add-button').on('click', function(event){
 	// Array to store contact objects, using a for loop to append First & Last name to <ul>
 	var contactList = [];
 
-
 /*---------- FUNCTIONS ----------*/
 
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
 		//create new contact by getting value of input field
-
 		var contact = Object.create(contactInfo);
-
 		contact.firstName = $('#first-name').val();
 		contact.lastName = $('#last-name').val();
 		contact.phoneNumber = $('#phone-number').val();
 		contact.street = $('#street').val();
 		contact.city = $('#city').val();
 		contact.state= $('#state').val();
-
 //Push new object contact to the array containing all contacts
 		contactList.push(contact);
-
 //Clear the class of last contact and append new object with data attribute data-index
 		$('.name-list').empty();
 		for (var i = 0; i < contactList.length; i++) {
@@ -64,16 +63,23 @@ $('#add-button').on('click', function(event){
 		$('#state').val('');
 	}
 
-// FUNCTION THAT APPENDS NEW CONTACT OBJECT AS A LINK IN A LIST
-
-
-
 // // FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
 
 	$('.name-list').on('click', 'li', function(event) {
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
 			console.log(contact);
+			$('#detail-First').text(contact.firstName);
+			$('#detail-Last').text(contact.lastName);
+			$('#detail-Phone').text(contact.phoneNumber);
+			$('#detail-Street').text(contact.street);
+			$('#detail-City').text(contact.city);
+			$('#detail-State').text(contact.state);
+			$('.show-contact').show();
+
+
+
+
 // // data attributes - HTML 5 concept
 //  		$(this).(contact.firstName)
 	})

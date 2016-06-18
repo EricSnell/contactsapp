@@ -15,31 +15,36 @@
 	<div class="contact-info">
 		<form id="formId">
 			<h3>First name</h3>
-			<input type="text" id="first-name" required>
+			<input type="text" id="first-name" name="info" required>
 			<h3>Last name</h3>
-			<input type="text" id="last-name" required>
+			<input type="text" id="last-name" name="info" name="info" required>
 			<h3>Phone number</h3>
-			<input type="text" id="phone-number" required>
+			<input type="text" id="phone-number" name="info" required>
 			<h3>Street</h3>
-			<input type="text" id="street">
+			<input type="text" id="street" name="info">
 			<h3>City</h3>
-			<input type="text" id="city">
+			<input type="text" id="city" name="info">
 			<h3>State</h3>
-			<input type="text" id="state">
+			<input type="text" id="state" name="info">
 			<input type="submit" value="Add" id="add-button">
 		</form>
 	</div>
 
 	<!-- DISPLAY CONTACT LINKS INFORMATION -->
 	<div class="show-contact">
-		<h3 class="display-contact-name"></h3>
-		<p class="display-contact-info"></p>
+		<h3 class="display-contact-name">Contact Details</h3>
+		<p class="display-contact-info" id="detail-First"></p>
+		<p class="display-contact-info" id="detail-Last"></p>
+		<p class="display-contact-info" id="detail-Phone"></p>
+		<p class="display-contact-info" id="detail-Street"></p>
+		<p class="display-contact-info" id="detail-City"></p>
+		<p class="display-contact-info" id="detail-State"></p>
 	</div>
 
 	<!-- CONTACT NAME LINKS -->
 	<div class="contact-links">
 		<h2>Contacts:</h2>
-		<ul class="name-list">			
+		<ul class="name-list">
 			<!-- append <li>'s here -->
 		</ul>
 	</div>
