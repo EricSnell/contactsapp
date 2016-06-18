@@ -1,29 +1,18 @@
-//	if (!$('#first-name').val() === '' || !$('#phone-number').val() === '') 
+//	if (!$('#first-name').val() === '' || !$('#phone-number').val() === '')
 
 $(document).ready(function(event){
 
-<<<<<<< HEAD
-$('.show-contact').hide(); //This class will later display contact details when a contact from a <li> is clicked
-//Listen for submission, then call functions that follow
-
-$('#add-button').on('click', function(event){
-	event.preventDefault();
-	addContact(); //creates new contact object
-	clearTextField(); //clears input text field after the form is submitted
-	});
-=======
 // HIDE CONTACT DETAILS DIV (SHOW WHEN CONTACT NAME IS CLICKED)
-	$('.show-contact').hide(); 
+	$('.show-contact').hide();
 
 // EVENT HANDLER THAT ADDS NEW CONTACT AND CLEARS TEXT INPUTS
 	$('#add-button').on('click', function(event){
-		event.preventDefault();	
-		addContact();			
-		clearTextField();			
-	});	
+		event.preventDefault();
+		addContact();
+		clearTextField();
+	});
 
 	displayContactInfo();
->>>>>>> 280dc31e52bd100d23ed8e4c9d8a2ba7b50414c6
 
 
 /*----------- VARIABLES -----------*/
@@ -84,38 +73,17 @@ $('#add-button').on('click', function(event){
 		$('.name-list').on('click', 'li', function(event){
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
-<<<<<<< HEAD
-			console.log(contact);
-			$('.display-contact-info').empty();
-			$('#detail-first').append('First name: ' + contact.firstName);
-			$('#detail-last').append('Last name: ' + contact.lastName);
-			$('#detail-phone').append('Phone number: ' + contact.phoneNumber);
-			$('#detail-address').append('Address: ' + contact.street + contact.city + contact.state);
-=======
-				
+
 			$('.display-contact-info').empty();
 			$('.display-contact-name').append(contact.firstName + ' ' + contact.lastName);
 			$('#detail-First').append('First Name:  ' + contact.firstName);
 			$('#detail-Last').append('Last Name:  ' + contact.lastName);
 			$('#detail-Phone').append('Phone Number:  ' + contact.phoneNumber);
 			$('#detail-Address').append('Address: ');
-			$('#detail-Address-List').append('<li>' + contact.street + ', ' + contact.city + ', ' + contact.state + '</li>');
-
->>>>>>> 280dc31e52bd100d23ed8e4c9d8a2ba7b50414c6
+			$('#detail-Address-List').append('<li>' + contact.street + contact.city + contact.state + '</li>');
 			$('.show-contact').show();
 		});
 	}
-
-<<<<<<< HEAD
-// // data attributes - HTML 5 concept
-//  		$(this).(contact.firstName)
-	})
-=======
-
-
-
->>>>>>> 280dc31e52bd100d23ed8e4c9d8a2ba7b50414c6
-
 });
 
 
