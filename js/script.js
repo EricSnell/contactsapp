@@ -1,4 +1,4 @@
-//	if (!$('#first-name').val() === '' || !$('#phone-number').val() === '')
+'use strict'
 
 $(document).ready(function(event){
 
@@ -13,7 +13,6 @@ $(document).ready(function(event){
 	});
 
 	displayContactInfo();
-
 
 /*----------- VARIABLES -----------*/
 
@@ -30,21 +29,15 @@ $(document).ready(function(event){
 	// ARRAY TO STORE CONTACTS
 	var contactList = [];
 
-
 /*------------- FUNCTIONS -------------*/
-
-// FUNCTION THAT CHECKS TO MAKE SURE REQUIRED FIELDS IN FORM ARE FILLED
-
-
 
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
 			//create new contact by getting value of input field
 			var contact = Object.create(contactInfo);
-
+// VALIDATE REQUIRED FORM FIELDS
 		if ($('#first-name').val() === '' || $('#last-name').val() === '' || $('#phone-number').val() === '') {
 			alert('Please enter First Name, Last Name,  and Phone Number');
-
 		} else {
 			contact.firstName = $('#first-name').val();
 			contact.lastName = $('#last-name').val();
@@ -64,7 +57,7 @@ $(document).ready(function(event){
 		}
 	}
 
-// FUNCTION THAT CLEARS TEXT FIELD
+// CLEARS TEXT FIELD
 	function clearTextField() {
 		$('#first-name').val('');
 		$('#last-name').val('');
@@ -74,7 +67,7 @@ $(document).ready(function(event){
 		$('#state').val('');
 	}
 
-// FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
+// DISPLAY CONTACT INFO IN show-contact DIV
 	function displayContactInfo() {
 		$('.name-list').on('click', 'li', function(event){
 			var contactIndex = $(this).data("index")
