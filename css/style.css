@@ -2,7 +2,7 @@ body {
 	margin-left: 3em;
 }
 .contact-info {
-	border: blue solid 2px;
+/*	border: blue solid 2px;*/
 	display: inline-block;
 	width: 50%;
 	margin-bottom: 1em;
@@ -17,7 +17,7 @@ body {
 }
 
 .contact-links {
-	border: red solid 2px;
+/*	border: red solid 2px;*/
 	width: 50%;
 }
 

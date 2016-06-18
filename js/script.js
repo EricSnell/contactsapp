@@ -42,9 +42,9 @@ $(document).ready(function(event){
 			//create new contact by getting value of input field
 			var contact = Object.create(contactInfo);
 
-		if ($('#first-name').val() === '' || $('#phone-number').val() === '') {	
-			alert('Please enter First Name and Phone Number');
-		
+		if ($('#first-name').val() === '' || $('#last-name').val() === '' || $('#phone-number').val() === '') {
+			alert('Please enter First Name, Last Name,  and Phone Number');
+
 		} else {
 			contact.firstName = $('#first-name').val();
 			contact.lastName = $('#last-name').val();
