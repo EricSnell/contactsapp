@@ -1,26 +1,23 @@
-// CREATE A GENERAL CONTACT OBJECT
-// CREATE AN EVENT HANDLER THAT CREATES NEW CONTACT OBJECT
-// ALLOW USERS TO VIEW CONTACTS AS LINKS
-// WHEN LINK IS CLICKED, DISPLAY CONTACT INFO IN DIV
+//	if (!$('#first-name').val() === '' || !$('#phone-number').val() === '') 
 
 $(document).ready(function(event){
 
+// HIDE CONTACT DETAILS DIV (SHOW WHEN CONTACT NAME IS CLICKED)
+	$('.show-contact').hide(); 
 
-	$('.show-contact').hide(); //This class will later display contact details when a contact from a <li> is clicked
+// EVENT HANDLER THAT ADDS NEW CONTACT AND CLEARS TEXT INPUTS
+	$('#add-button').on('click', function(event){
+		event.preventDefault();	
+		addContact();			
+		clearTextField();			
+	});	
 
-//Listen for submission, then call functions that follow
-$('#add-button').on('click', function(event){
-	event.preventDefault();
-	addContact(); //creates new contact object
-	clearTextField(); //clears input text field after the form is submitted
-	});
+	displayContactInfo();
 
-	// $("body").on('click', '', function(event){
-	// })
 
-/*-------- VARIABLES --------*/
+/*----------- VARIABLES -----------*/
 
-//This is the object prototype new contact objects will inherit from
+// OBJECT THAT ADDED CONTACTS WILL INHERIT FROM
 	var contactInfo = {
 		firstName: '',
 		lastName: '',
@@ -29,14 +26,20 @@ $('#add-button').on('click', function(event){
 		city: '',
 		state: ''
 	};
-	// Array to store contact objects, using a for loop to append First & Last name to <ul>
+
+// ARRAY TO STORE CONTACTS
 	var contactList = [];
 
-/*---------- FUNCTIONS ----------*/
+
+/*------------- FUNCTIONS -------------*/
+
+// FUNCTION THAT CHECKS TO MAKE SURE REQUIRED FIELDS IN FORM ARE FILLED
+
+
 
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
-		//create new contact by getting value of input field
+	//create new contact by getting value of input field
 		var contact = Object.create(contactInfo);
 		contact.firstName = $('#first-name').val();
 		contact.lastName = $('#last-name').val();
@@ -44,9 +47,11 @@ $('#add-button').on('click', function(event){
 		contact.street = $('#street').val();
 		contact.city = $('#city').val();
 		contact.state= $('#state').val();
-//Push new object contact to the array containing all contacts
+
+	// Push new object contact to the array containing all contacts
 		contactList.push(contact);
-//Clear the class of last contact and append new object with data attribute data-index
+
+	// Clear the class of last contact and append new object with data attribute data-index
 		$('.name-list').empty();
 		for (var i = 0; i < contactList.length; i++) {
 			$('.name-list').append('<li data-index="' +i + '">' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
@@ -63,26 +68,27 @@ $('#add-button').on('click', function(event){
 		$('#state').val('');
 	}
 
-// // FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
-
-	$('.name-list').on('click', 'li', function(event) {
+// FUNCTION THAT DISPLAY CONTACT INFO IN show-contact DIV
+	function displayContactInfo() {
+		$('.name-list').on('click', 'li', function(event){
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
-			console.log(contact);
-			$('#detail-First').text(contact.firstName);
-			$('#detail-Last').text(contact.lastName);
-			$('#detail-Phone').text(contact.phoneNumber);
-			$('#detail-Street').text(contact.street);
-			$('#detail-City').text(contact.city);
-			$('#detail-State').text(contact.state);
+				
+			$('.display-contact-info').empty();
+			$('.display-contact-name').append(contact.firstName + ' ' + contact.lastName);
+			$('#detail-First').append('First Name:  ' + contact.firstName);
+			$('#detail-Last').append('Last Name:  ' + contact.lastName);
+			$('#detail-Phone').append('Phone Number:  ' + contact.phoneNumber);
+			$('#detail-Address').append('Address: ');
+			$('#detail-Address-List').append('<li>' + contact.street + ', ' + contact.city + ', ' + contact.state + '</li>');
+
 			$('.show-contact').show();
+		});
+	}
 
 
 
 
-// // data attributes - HTML 5 concept
-//  		$(this).(contact.firstName)
-	})
 
 });
 
