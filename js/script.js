@@ -5,9 +5,7 @@
 
 $(document).ready(function(event){
 
-
-	$('.show-contact').hide(); //This class will later display contact details when a contact from a <li> is clicked
-
+$('.show-contact').hide(); //This class will later display contact details when a contact from a <li> is clicked
 //Listen for submission, then call functions that follow
 $('#add-button').on('click', function(event){
 	event.preventDefault();
@@ -69,16 +67,12 @@ $('#add-button').on('click', function(event){
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
 			console.log(contact);
-			$('#detail-First').text(contact.firstName);
-			$('#detail-Last').text(contact.lastName);
-			$('#detail-Phone').text(contact.phoneNumber);
-			$('#detail-Street').text(contact.street);
-			$('#detail-City').text(contact.city);
-			$('#detail-State').text(contact.state);
+			$('.display-contact-info').empty();
+			$('#detail-first').append(contact.firstName);
+			$('#detail-last').append(contact.lastName);
+			$('#detail-phone').append(contact.phoneNumber);
+			$('#detail-address').append(contact.street + ', ' + contact.city + ', ' + contact.state);
 			$('.show-contact').show();
-
-
-
 
 // // data attributes - HTML 5 concept
 //  		$(this).(contact.firstName)
