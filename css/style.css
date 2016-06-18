@@ -1,0 +1,31 @@
+body {
+	margin-left: 3em;
+}
+.contact-info {
+	border: blue solid 2px;
+	display: inline-block;
+	width: 50%;
+	margin-bottom: 1em;
+}
+
+.show-contact {
+	border: green solid 2px;
+	display: inline-block;
+	width: 40%;
+	position: absolute;
+	margin-left: 1em;
+}
+
+.contact-links {
+	border: red solid 2px;
+	width: 50%;
+}
+
+.name-list {
+	color: blue;
+}
+
+.name-list:hover {
+	cursor: hand;
+	color: darkblue;
+}
