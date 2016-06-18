@@ -34,12 +34,6 @@ $('#add-button').on('click', function(event){
 
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
-
-		// if ($('.#first-name').is(:empty)) {
-		// 	alert
-
-
-		}
 		//create new contact by getting value of input field
 		var contact = Object.create(contactInfo);
 		contact.firstName = $('#first-name').val();
@@ -55,7 +49,7 @@ $('#add-button').on('click', function(event){
 		for (var i = 0; i < contactList.length; i++) {
 			$('.name-list').append('<li data-index="' +i + '">' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
 		}
-	})
+	}
 
 // FUNCTION THAT CLEARS TEXT FIELD
 	function clearTextField() {
@@ -84,6 +78,7 @@ $('#add-button').on('click', function(event){
 //  		$(this).(contact.firstName)
 	})
 
+});
 
 
 
