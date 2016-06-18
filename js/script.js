@@ -5,18 +5,16 @@
 
 $(document).ready(function(event){
 
+//Listen for submission, then call functions that follow
 $('#add-button').on('click', function(event){
-	$('.show-contact').hide();
+	$('.show-contact').hide(); //This class will later display contact details when a contact from a <li> is clicked
 	event.preventDefault();
-	addContact();
-	clearTextField();
+	addContact(); //creates new contact object
+	clearTextField(); //clears input text field after the form is submitted
 	})
 
 	// $("body").on('click', '', function(event){
-
 	// })
-
-
 
 /*-------- VARIABLES --------*/
 	var contactInfo = {
@@ -27,7 +25,6 @@ $('#add-button').on('click', function(event){
 		city: '',
 		state: ''
 	};
-
 	// Array to store contact objects, using a for loop to append First & Last name to <ul>
 	var contactList = [];
 
@@ -47,8 +44,10 @@ $('#add-button').on('click', function(event){
 		contact.city = $('#city').val();
 		contact.state= $('#state').val();
 
+//Push new object contact to the array containing all contacts
 		contactList.push(contact);
-//
+
+//Clear the class of last contact and append new object with data attribute data-index
 		$('.name-list').empty();
 		for (var i = 0; i < contactList.length; i++) {
 			$('.name-list').append('<li data-index="' +i + '">' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
