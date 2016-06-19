@@ -20,8 +20,7 @@ $(document).ready(function(event){
 		if ($('#first-name').val() === '' || $('#last-name').val() === '' || $('#phone-number').val() === '') {
 			alert('Please enter First Name, Last Name,  and Phone Number');
 		} else {
-		addPhoneNumb();
-		}
+			$('.alternate').show();}
 	});
 
 /*----------- VARIABLES -----------*/
@@ -36,9 +35,8 @@ $(document).ready(function(event){
 		state: ''
 	};
 
-	// ARRAY TO STORE CONTACTS
-	var contactList = [];
-
+// ARRAY TO STORE CONTACTS
+var contactList = [];
 /*------------- FUNCTIONS -------------*/
 
 var contact = Object.create(contactInfo);
@@ -56,6 +54,8 @@ var contact = Object.create(contactInfo);
 			contact.street = $('#street').val();
 			contact.city = $('#city').val();
 			contact.state= $('#state').val();
+			contact.alternateNumber = $('#alternate-phone').val();
+		 	console.log('add second phone');
 
 			// Push new object contact to the array containing all contacts
 			contactList.push(contact);
@@ -72,11 +72,11 @@ var contact = Object.create(contactInfo);
 
 
 //ADD SECOND PHONE NUMBER
-	function addPhoneNumb() {
-		contact.alternateNumber = $('#alternate-phone').val();
-		$('.alternate').show();
-		console.log('add second phone');
-	}
+	// function addPhoneNumb() {
+	// 	contact.alternateNumber = $('#alternate-phone').val();
+	// 	console.log('add second phone');
+	// 	console.log(contact.street);
+	// }
 
 // CLEARS TEXT FIELD
 	function clearTextField() {
@@ -94,7 +94,6 @@ var contact = Object.create(contactInfo);
 		$('.name-list').on('click', 'li', function(event){
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
-
 			$('.display-contact-info').empty();
 			$('.display-contact-name').empty();
 			$('.display-contact-name').append(contact.firstName + ' ' + contact.lastName);
