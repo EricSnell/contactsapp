@@ -2,13 +2,15 @@ body {
 	margin-left: 3em;
 }
 
-div {
-	padding: 1em;
+fieldset {
+	border: 0;
 }
+
 .contact-info {
 	display: inline-block;
 	width: 30%;
 	margin-bottom: 1em;
+	padding: 1em;
 }
 
 .show-contact {
@@ -16,10 +18,12 @@ div {
 	width: 40%;
 	position: absolute;
 	margin-left: 1em;
+	padding: 1em;
 }
 
 .contact-links {
 	width: 50%;
+	padding: 1em;
 }
 
 .name-list {

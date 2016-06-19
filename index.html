@@ -20,13 +20,21 @@
 			<h3>Last name</h3>
 			<input type="text" id="last-name" name="info" name="info">
 			<h3>Phone number<span>*</span><button id="add-number-button">Add Phone Number</button></h3>
-			<input type="text" id="phone-number" name="info">
-			<h3>Street</h3>
-			<input type="text" id="street" name="info">
-			<h3>City</h3>
-			<input type="text" id="city" name="info">
-			<h3>State</h3>
-			<input type="text" id="state" name="info"><br>
+			<fieldset id="phone-numbers-container">
+				<div class="phone-number-div">
+					<input type="text" id="phone-number" name="info" value="">
+				</div>
+			</fieldset>
+			<fieldset id="address-container">
+				<div class="address-div">
+					<h3>Street</h3>
+					<input type="text" id="street" name="info" value="">
+					<h3>City</h3>
+					<input type="text" id="city" name="info" value="">
+					<h3>State</h3>
+					<input type="text" id="state" name="info" value="">
+				</div>
+			</fieldset><br>
 			<input type="submit" value="Add Contact" id="add-button"><button id="add-address-button">Add Address</button>
 		</form>
 	</div>
