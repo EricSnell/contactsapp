@@ -11,6 +11,7 @@ $(document).ready(function(event){
 		event.preventDefault();
 		addContact();
 		clearTextField();
+		console.log(contactList);
 	});
 
 	displayContactInfo();
@@ -36,13 +37,13 @@ $(document).ready(function(event){
 	};
 
 // ARRAY TO STORE CONTACTS
-var contactList = [];
-/*------------- FUNCTIONS -------------*/
+	var contactList = [];
 
-var contact = Object.create(contactInfo);
+/*------------- FUNCTIONS -------------*/
 
 // FUNCTION THAT CREATES NEW CONTACT OBJECT INHERITED FROM contactInfo OBJECT
 	function addContact() {
+			var contact = Object.create(contactInfo);
 			//create new contact by getting value of input field
 // VALIDATE REQUIRED FORM FIELDS
 		if ($('#first-name').val() === '' || $('#last-name').val() === '' || $('#phone-number').val() === '') {
@@ -94,15 +95,16 @@ var contact = Object.create(contactInfo);
 		$('.name-list').on('click', 'li', function(event){
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
+
 			$('.display-contact-info').empty();
 			$('.display-contact-name').empty();
 			$('.display-contact-name').append(contact.firstName + ' ' + contact.lastName);
 			$('#detail-First').append('First Name:  ' + contact.firstName);
 			$('#detail-Last').append('Last Name:  ' + contact.lastName);
 			$('#detail-Phone').append('Phone Number:  ' + contact.phoneNumber);
+			$('#detail-Address-List').append('<li>' + contact.street + ' ' + contact.city + ' ' + contact.state + '</li>');
 			$('#detail-Alternate-Phone').append('Alternate Number:  ' + contact.alternateNumber);
 			$('#detail-Address').append('Address: ');
-			$('#detail-Address-List').append('<li>' + contact.street + ' ' + contact.city + ' ' + contact.state + '</li>');
 			$('.show-contact').show();
 		});
 	}
