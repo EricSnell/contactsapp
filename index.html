@@ -8,25 +8,26 @@
 <body>
 	<div>
 		<h1>Contacts</h1>
-		<h2>Add a contact:</h2>
+		
 	</div>
 
 	<!--- CONTACT INPUT -->
 	<div class="contact-info">
 		<form id="formId">
+			<h2>Add a contact:</h2>
 			<h3>First name<span>*</span></h3>
-			<input type="text" id="first-name" name="info" required>
+			<input type="text" id="first-name" name="info">
 			<h3>Last name</h3>
-			<input type="text" id="last-name" name="info" name="info" required>
-			<h3>Phone number<span>*</span></h3>
-			<input type="text" id="phone-number" name="info" required>
+			<input type="text" id="last-name" name="info" name="info">
+			<h3>Phone number<span>*</span><button id="add-number-button">Add Phone Number</button></h3>
+			<input type="text" id="phone-number" name="info">
 			<h3>Street</h3>
 			<input type="text" id="street" name="info">
 			<h3>City</h3>
 			<input type="text" id="city" name="info">
 			<h3>State</h3>
-			<input type="text" id="state" name="info">
-			<input type="submit" value="Add" id="add-button">
+			<input type="text" id="state" name="info"><br>
+			<input type="submit" value="Add Contact" id="add-button"><button id="add-address-button">Add Address</button>
 		</form>
 	</div>
 

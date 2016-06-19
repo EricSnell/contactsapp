@@ -1,15 +1,17 @@
 body {
 	margin-left: 3em;
 }
+
+div {
+	padding: 1em;
+}
 .contact-info {
-	border: blue solid 2px;
 	display: inline-block;
-	width: 50%;
+	width: 30%;
 	margin-bottom: 1em;
 }
 
 .show-contact {
-	border: green solid 2px;
 	display: inline-block;
 	width: 40%;
 	position: absolute;
@@ -17,7 +19,6 @@ body {
 }
 
 .contact-links {
-	border: red solid 2px;
 	width: 50%;
 }
 
@@ -32,4 +33,10 @@ body {
 
 span {
 	color: red;
+}
+
+button {
+	background-color: cornflowerblue;
+	color: white;
+	margin-left: 8px;
 }
