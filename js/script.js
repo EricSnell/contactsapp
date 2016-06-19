@@ -95,7 +95,7 @@ var contact = Object.create(contactInfo);
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
 			$('.display-contact-info').empty();
-			// $('.display-contact-name').empty();
+			$('.display-contact-name').empty();
 			$('.display-contact-name').append(contact.firstName + ' ' + contact.lastName);
 			$('#detail-First').append('First Name:  ' + contact.firstName);
 			$('#detail-Last').append('Last Name:  ' + contact.lastName);
