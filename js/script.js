@@ -79,14 +79,6 @@ $('#add-email').click(function() {
 		}
 	}
 
-
-//ADD SECOND PHONE NUMBER
-	// function addPhoneNumb() {
-	// 	contact.alternateNumber = $('#alternate-phone').val();
-	// 	console.log('add second phone');
-	// 	console.log(contact.street);
-	// }
-
 // CLEARS TEXT FIELD
 	function clearTextField() {
 		$('#first-name').val('');
