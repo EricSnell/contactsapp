@@ -55,7 +55,7 @@ var contact = Object.create(contactInfo);
 			contact.city = $('#city').val();
 			contact.state= $('#state').val();
 			contact.alternateNumber = $('#alternate-phone').val();
-		 	console.log('add second phone');
+		 	// console.log('add second phone');
 
 			// Push new object contact to the array containing all contacts
 			contactList.push(contact);
@@ -95,7 +95,7 @@ var contact = Object.create(contactInfo);
 			var contactIndex = $(this).data("index")
 			var contact = contactList[parseInt(contactIndex)]
 			$('.display-contact-info').empty();
-			$('.display-contact-name').empty();
+			// $('.display-contact-name').empty();
 			$('.display-contact-name').append(contact.firstName + ' ' + contact.lastName);
 			$('#detail-First').append('First Name:  ' + contact.firstName);
 			$('#detail-Last').append('Last Name:  ' + contact.lastName);
