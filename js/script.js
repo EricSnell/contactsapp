@@ -16,13 +16,13 @@ $(document).ready(function(event){
 	// Duplicate Phone Number field event
 	$('body').on('click','#add-number-button',function(event){	
 		event.preventDefault();
-		addPhoneNumber();
+		addPhoneNumberInput();
 	});
 
 	// Duplicate Street, City, and State fields event
 	$('body').on('click', '#add-address-button', function(event) {
     	event.preventDefault();
-    	addAddress($('.address-div:first'));
+    	addAddressInput($('.address-div:first'));
   	});
 
 
@@ -30,9 +30,7 @@ $(document).ready(function(event){
 	$('body').on('click','.remove-item', function(event){
 		event.preventDefault();
 		$(this).parent().remove();
-	});
-
-
+	});	
 
 
 
@@ -58,9 +56,6 @@ $(document).ready(function(event){
 
 
 
-
-
-
 /*------------- FUNCTIONS -------------*/
 
 // Creates new contact object and pushes to contacts array
@@ -81,23 +76,26 @@ $(document).ready(function(event){
 			contact.state= $('#state').val();
 
 			contactList.push(contact);
+			contactLink();
+		}	
+	}
 
-			// Empty previous list and display updated list
-			$('.name-list').empty();
+// Displays contact list 
+	function contactLink() {
+		$('.name-list').empty();
 			for (var i = 0; i < contactList.length; i++) {
 				$('.name-list').append('<li data-index="' +i + '">' + contactList[i].firstName + ' ' + contactList[i].lastName + '</li>');
 			}
-		}
-	}
+	} 
 
-// Add new phone number inputs
-	function addPhoneNumber() {
+// Adds new phone number inputs
+	function addPhoneNumberInput() {
 
 		$('#phone-numbers-container').append('<div class="phone-number-div"><input type="text" name="info" value=""><button class="remove-item">x</button>');
 	}
 
-// Add new street, city, and state inputs
-	function addAddress(element) {
+// Adds new street, city, and state inputs
+	function addAddressInput(element) {
 		
     	var newAddress = "<fieldset id='address-container'><div class='address-div'><h3>Street</h3><input type='text' id='street' name='info' value=''><h3>City</h3><input type='text' id='city' name='info' value=''><h3>State</h3><input type='text' id='state' name='info' value=''><button class='remove-item'>x</button></div></fieldset>";
    		
